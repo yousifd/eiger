@@ -186,7 +186,7 @@
     <target name="gen-cli-grammar" depends="check-gen-cli-grammar" unless="cliUpToDate">
       <echo>Building Grammar ${build.src.java}/org/apache/cassandra/cli/Cli.g  ....</echo>
       <java classname="org.antlr.Tool"
-            classpath="${build.lib}/antlr-3.2.jar"
+            classpath="${build.dir.lib}/jars/antlr-3.5.2.jar;${build.lib}/antlr-runtime-3.5.2.jar;${build.lib}/stringtemplate-4.0.2.jar"
             fork="true"
             failonerror="true">
          <arg value="${build.src.java}/org/apache/cassandra/cli/Cli.g" />
@@ -207,7 +207,7 @@
     <target name="gen-cql-grammar" depends="check-gen-cql-grammar" unless="cqlcurrent">
       <echo>Building Grammar ${build.src.java}/org/apache/cassandra/cql/Cql.g  ...</echo>
       <java classname="org.antlr.Tool"
-            classpath="${build.lib}/antlr-3.2.jar"
+            classpath="${build.dir.lib}/jars/antlr-3.5.2.jar;${build.lib}/antlr-runtime-3.5.2.jar;${build.lib}/stringtemplate-4.0.2.jar"
             fork="true"
             failonerror="true">
          <arg value="${build.src.java}/org/apache/cassandra/cql/Cql.g" />
@@ -350,7 +350,9 @@ url=${svn.entry.url}?pathrev=${svn.entry.commit.revision}
           <dependency groupId="commons-codec" artifactId="commons-codec" version="1.2"/>
           <dependency groupId="commons-lang" artifactId="commons-lang" version="2.4"/>
           <dependency groupId="com.googlecode.concurrentlinkedhashmap" artifactId="concurrentlinkedhashmap-lru" version="1.2"/>
-          <dependency groupId="org.antlr" artifactId="antlr" version="3.2"/>
+		  <dependency groupId="org.antlr" artifactId="antlr" version="3.5.2"/>
+		  <dependency groupId="org.antlr" artifactId="antlr-runtime" version="3.5.2"/>
+		  <dependency groupId="org.antlr" artifactId="stringtemplate" version="4.0.2"/>
           <dependency groupId="org.slf4j" artifactId="slf4j-api" version="1.6.1"/>
           <dependency groupId="org.slf4j" artifactId="slf4j-log4j12" version="1.6.1"/>
           <dependency groupId="org.codehaus.jackson" artifactId="jackson-core-asl" version="1.4.0"/>
@@ -461,6 +463,8 @@ url=${svn.entry.url}?pathrev=${svn.entry.commit.revision}
         <dependency groupId="commons-lang" artifactId="commons-lang"/>
         <dependency groupId="com.googlecode.concurrentlinkedhashmap" artifactId="concurrentlinkedhashmap-lru"/>
         <dependency groupId="org.antlr" artifactId="antlr"/>
+		<dependency groupID="org.antlr" artifactId="antlr-runtime"/>
+		<dependency groupId="org.antlr" artifactId="stringtemplate" version="4.0.2"/>
         <dependency groupId="org.slf4j" artifactId="slf4j-api"/>
         <dependency groupId="org.apache.cassandra.deps" artifactId="avro"/>
         <dependency groupId="org.codehaus.jackson" artifactId="jackson-core-asl"/>
