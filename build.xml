@@ -1261,7 +1261,8 @@ url=${svn.entry.url}?pathrev=${svn.entry.commit.revision}
   	</path>
   	<property name="eclipse-project-libs" refid="eclipse-project-libs-path"/>
   	<script language="javascript"> <![CDATA[
-  		importClass(java.io.File);
+  		load("nashorn:mozilla_compat.js")
+		importClass(java.io.File);
   		jars = project.getProperty("eclipse-project-libs").split(project.getProperty("path.separator"));
   		
   		cp = "";
